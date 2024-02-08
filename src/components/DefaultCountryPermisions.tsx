@@ -32,6 +32,7 @@ const DefaultCountryPermisions = () => {
     }
   };
 
+  // this useEfec will fetch counrty if user be able
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
