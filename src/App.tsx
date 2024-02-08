@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
+import DefaultCountryPermisions from "./components/DefaultCountryPermisions";
 
 function App() {
   return (
     <AppWrapper>
       <GlobalStyles />
+      <DefaultCountryPermisions />
     </AppWrapper>
   );
 }
