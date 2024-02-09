@@ -58,6 +58,7 @@ const DefaultCountryPermisions = () => {
     <div>
       <h1>{country}</h1>
       <h2>{shortCountry}</h2>
+      <></>
     </div>
   );
 };
