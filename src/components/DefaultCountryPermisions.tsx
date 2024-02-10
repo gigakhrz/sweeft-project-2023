@@ -39,7 +39,6 @@ const DefaultCountryPermisions = () => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             const { latitude, longitude } = position.coords;
-
             fetchCountry(latitude, longitude);
           },
           (error) => {
