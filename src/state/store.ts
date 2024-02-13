@@ -4,7 +4,7 @@ type SateStore = {
   country: string;
   shortCountry: string;
   setCountry: (newCountry: string) => void;
-  setShortCountry: (newCoutry: string) => void;
+  setShortCountry: (newShortCoutry: string) => void;
 };
 
 export const useCountryStore = create<SateStore>((set) => ({
@@ -16,7 +16,7 @@ export const useCountryStore = create<SateStore>((set) => ({
   setCountry: (newCountry: string) => {
     set({ country: newCountry });
   },
-  setShortCountry: (newCountry: string) => {
-    set({ shortCountry: newCountry });
+  setShortCountry: (newShortCoutry: string) => {
+    set({ shortCountry: newShortCoutry });
   },
 }));
