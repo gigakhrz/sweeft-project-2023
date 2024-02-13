@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 import DefaultCountryPermisions from "./components/DefaultCountryPermisions";
+import Header from "./components/Header";
 
 function App() {
   return (
     <AppWrapper>
       <GlobalStyles />
       <DefaultCountryPermisions />
+      <Header />
     </AppWrapper>
   );
 }
