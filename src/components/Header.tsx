@@ -98,6 +98,8 @@ const HeaderWrapper = styled.div`
   height: 40px;
   align-items: center;
   padding: 7, 30;
-  background-color: black;
+  background-color: #add8e6;
   border-radius: 10px;
+  justify-content: center;
+  gap: 20px;
 `;
