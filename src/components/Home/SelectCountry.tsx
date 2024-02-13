@@ -6,8 +6,8 @@ const SelectCountry = () => {
   useEffect(() => {
     const fetchCountires = async () => {
       try {
-        const response = axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
+        const response = await axios.get(
+          "https://restcountries.com/v3.1/all?fields=name,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
         );
 
         console.log((await response).data);
