@@ -1,6 +1,24 @@
 import { FormControl, MenuItem, OutlinedInput, Select } from "@mui/material";
+import axios from "axios";
+import { useEffect } from "react";
 
 const SelectCountry = () => {
+  useEffect(() => {
+    const fetchCountires = async () => {
+      try {
+        const response = axios.get(
+          "https://restcountries.com/v3.1/all?fields=name,shortName,capital,currencies,region,subregion,continents,population,borders,flags"
+        );
+
+        console.log((await response).data);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
+    fetchCountires();
+  }, []);
+
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
