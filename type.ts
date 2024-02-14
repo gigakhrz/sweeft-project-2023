@@ -16,13 +16,13 @@ interface CountryType {
     | undefined;
   population?: number;
   region?: string;
-  subregion?: string; // Add subregion property
+  subregion?: string;
   borders?: string[];
   flags?: {
     alt: string;
     png: string;
     svg: string;
-  }; // Add flags property
+  };
 }
 
 export default CountryType;
