@@ -21,7 +21,7 @@ const SelectCountry = () => {
             : [];
         });
 
-        console.log((await response).data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
