@@ -1,5 +1,5 @@
 // type of the cournties data
-interface CountryType {
+interface CountryApiType {
   name: {
     common: string;
     official: string;
@@ -25,4 +25,4 @@ interface CountryType {
   };
 }
 
-export default CountryType;
+export default CountryApiType;
