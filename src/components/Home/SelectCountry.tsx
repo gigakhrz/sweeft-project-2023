@@ -1,7 +1,7 @@
 import { FormControl, MenuItem, OutlinedInput, Select } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
-
+import CountryApiType from " ../../../type";
 
 const SelectCountry = () => {
   useEffect(() => {
@@ -11,15 +11,15 @@ const SelectCountry = () => {
           "https://restcountries.com/v3.1/all?fields=name,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
         );
 
-        const data = response.data.map((country: ) => {
-            // currency info
-            const currencies = country.currencies
-              ? Object.keys(country.currencies).map((currencyCode: any) => ({
-                  name: country.currencies![currencyCode].name,
-                  symbol: country.currencies![currencyCode].symbol,
-                }))
-              : [];
-            })
+        const data = response.data.map((country: CountryApiType) => {
+          // info about curryency
+          const currencies = country.currencies
+            ? Object.keys(country.currencies).map((currencyCode: any) => ({
+                name: country.currencies![currencyCode].name,
+                symbol: country.currencies![currencyCode].symbol,
+              }))
+            : [];
+        });
 
         console.log((await response).data);
       } catch (error) {
