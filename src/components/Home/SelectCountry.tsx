@@ -1,4 +1,4 @@
-import { FormControl, MenuItem, OutlinedInput, Select } from "@mui/material";
+import { FormControl, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
 import CountryApiType from " ../../../type";
@@ -9,11 +9,11 @@ import styled from "styled-components";
 const SelectCountry = () => {
   // setStates
   const setContries = useCountryStore((store) => store.setContries);
-  const setSelectedContry = useCountryStore((store) => store.setSelectedContry);
+  const setContry = useCountryStore((store) => store.setCountry);
 
   // state
   const contries = useCountryStore((Store) => Store.contries);
-  const selectedContry = useCountryStore((store) => store.selectedContry);
+  const contry = useCountryStore((store) => store.country);
 
   useEffect(() => {
     const fetchCountires = async () => {
@@ -74,9 +74,9 @@ const SelectCountry = () => {
     // check if selected is not undefined
 
     if (selected) {
-      setSelectedContry(e.target.value);
+      setContry(e.target.value);
     } else {
-      setSelectedContry(""); // Reset selected country if not found
+      setContry(""); // Reset selected country if not found
     }
   };
 
@@ -87,7 +87,7 @@ const SelectCountry = () => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Country"
-          value={selectedContry}
+          value={contry}
           onChange={choosenContry}
         >
           {contries.map(

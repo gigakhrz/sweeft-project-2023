@@ -6,12 +6,12 @@ type SateStore = {
   country: string;
   shortCountry: string;
   contries: CountryApiType[];
-  selectedContry: string;
+  contryInfo: null | CountryApiType[];
   // setStates
   setShortCountry: (newShortCoutry: string) => void;
   setContries: (newContries: CountryApiType[]) => void;
   setCountry: (newCountry: string) => void;
-  setSelectedContry: (Contry: string) => void;
+  setContryInfo: (Contry: null | CountryApiType[]) => void;
 };
 
 export const useCountryStore = create<SateStore>((set) => ({
@@ -19,7 +19,7 @@ export const useCountryStore = create<SateStore>((set) => ({
   country: "",
   shortCountry: "",
   contries: [],
-  selectedContry: "",
+  contryInfo: null,
   //   setState functions
   setCountry: (newCountry: string) => {
     set({ country: newCountry });
@@ -30,7 +30,7 @@ export const useCountryStore = create<SateStore>((set) => ({
   setContries: (newContries: CountryApiType[]) => {
     set({ contries: newContries });
   },
-  setSelectedContry: (Contry: string) => {
-    set({ selectedContry: Contry });
+  setContryInfo: (Contry: null | CountryApiType[]) => {
+    set({ contryInfo: Contry });
   },
 }));
