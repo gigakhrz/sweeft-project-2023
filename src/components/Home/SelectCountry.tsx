@@ -11,6 +11,7 @@ const SelectCountry = () => {
           "https://restcountries.com/v3.1/all?fields=name,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
         );
 
+        console.log(response.data);
         const data = response.data.map((country: CountryApiType) => {
           // info about curryency
           const currencies = country.currencies
@@ -19,6 +20,26 @@ const SelectCountry = () => {
                 symbol: country.currencies![currencyCode].symbol,
               }))
             : [];
+
+          return {
+            name: {
+              common: country.name.common,
+              official: country.name.official,
+            },
+
+            capital: country.capital,
+            currencies: currencies.length > 0 ? currencies : undefined,
+            region: country.region,
+            subregion: country.subregion,
+            continents: country.continents?.[0],
+            population: country.population,
+            borders: country.borders ? country.borders.join(" ") : "",
+            flags: {
+              alt: country.flags?.alt,
+              png: country.flags?.png,
+              svg: country.flags?.svg,
+            },
+          };
         });
 
         console.log(data);
