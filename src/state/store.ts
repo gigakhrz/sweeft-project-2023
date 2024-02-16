@@ -2,12 +2,16 @@ import { create } from "zustand";
 import CountryApiType from "../../type";
 
 type SateStore = {
+  // states
   country: string;
   shortCountry: string;
-  setCountry: (newCountry: string) => void;
-  setShortCountry: (newShortCoutry: string) => void;
   contries: CountryApiType[];
+  selectedContry: string;
+  // setStates
+  setShortCountry: (newShortCoutry: string) => void;
   setContries: (newContries: CountryApiType[]) => void;
+  setCountry: (newCountry: string) => void;
+  setSelectedContry: (Contry: string) => void;
 };
 
 export const useCountryStore = create<SateStore>((set) => ({
@@ -15,6 +19,7 @@ export const useCountryStore = create<SateStore>((set) => ({
   country: "",
   shortCountry: "",
   contries: [],
+  selectedContry: "",
   //   setState functions
   setCountry: (newCountry: string) => {
     set({ country: newCountry });
@@ -24,5 +29,8 @@ export const useCountryStore = create<SateStore>((set) => ({
   },
   setContries: (newContries: CountryApiType[]) => {
     set({ contries: newContries });
+  },
+  setSelectedContry: (Contry: string) => {
+    set({ selectedContry: Contry });
   },
 }));
