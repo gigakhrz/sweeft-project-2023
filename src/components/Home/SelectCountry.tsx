@@ -10,6 +10,7 @@ const SelectCountry = () => {
   // setStates
   const setContries = useCountryStore((store) => store.setContries);
   const setContry = useCountryStore((store) => store.setCountry);
+  const setContryInfo = useCountryStore((store) => store.setContryInfo);
 
   // state
   const contries = useCountryStore((Store) => Store.contries);
@@ -75,8 +76,10 @@ const SelectCountry = () => {
 
     if (selected) {
       setContry(e.target.value);
+      setContryInfo(selected);
     } else {
       setContry(""); // Reset selected country if not found
+      setContryInfo(null);
     }
   };
 
