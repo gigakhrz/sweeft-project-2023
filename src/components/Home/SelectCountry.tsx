@@ -3,13 +3,17 @@ import axios from "axios";
 import { useEffect } from "react";
 import CountryApiType from " ../../../type";
 import { useCountryStore } from "../../state/store";
+import { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
+import styled from "styled-components";
 
 const SelectCountry = () => {
   // setStates
   const setContries = useCountryStore((store) => store.setContries);
+  const setSelectedContry = useCountryStore((store) => store.setSelectedContry);
 
   // state
   const contries = useCountryStore((Store) => Store.contries);
+  const selectedContry = useCountryStore((store) => store.selectedContry);
 
   useEffect(() => {
     const fetchCountires = async () => {
@@ -60,34 +64,48 @@ const SelectCountry = () => {
     fetchCountires();
   }, []);
 
+  // this function will catch selected country name
+
+  const choosenContry = (e: SelectChangeEvent<string>): void => {
+    const selected = contries.filter((contry) => {
+      contry.name.common === e.target.value;
+    });
+
+    // check if selected is not undefined
+
+    if (selected) {
+      setSelectedContry(e.target.value);
+    } else {
+      setSelectedContry(""); // Reset selected country if not found
+    }
+  };
+
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
+    <MainInput>
+      <FormControl fullWidth>
         <Select
-          multiple
-          displayEmpty
-          value={[]}
-          input={<OutlinedInput />}
-          renderValue={(selected) => {
-            if (selected.length === 0) {
-              return <em>Countries</em>;
-            }
-          }}
-          inputProps={{ "aria-label": "Without label" }}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Country"
+          value={selectedContry}
+          onChange={choosenContry}
         >
-          <MenuItem disabled value="">
-            <em>Countries</em>
-          </MenuItem>
-          {/* maping contries names */}
-          {contries.map((contry) => (
-            <MenuItem key={contry.name.common} value={contry.name.common}>
-              {contry.name.common}
-            </MenuItem>
-          ))}
+          {contries.map(
+            (country) =>
+              country.name && (
+                <MenuItem key={country.name.common} value={country.name.common}>
+                  {country.name.common}
+                </MenuItem>
+              )
+          )}
         </Select>
       </FormControl>
-    </div>
+    </MainInput>
   );
 };
 
 export default SelectCountry;
+
+const MainInput = styled.div`
+  width: 250px;
+`;
