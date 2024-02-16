@@ -11,7 +11,6 @@ const SelectCountry = () => {
           "https://restcountries.com/v3.1/all?fields=name,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
         );
 
-        console.log(response.data);
         const data = response.data.map((country: CountryApiType) => {
           // info about curryency
           const currencies = country.currencies
@@ -38,6 +37,9 @@ const SelectCountry = () => {
               alt: country.flags?.alt,
               png: country.flags?.png,
               svg: country.flags?.svg,
+            },
+            altSpellings: {
+              shortName: country.altSpellings[0],
             },
           };
         });
