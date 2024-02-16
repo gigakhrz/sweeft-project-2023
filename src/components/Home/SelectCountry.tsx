@@ -2,8 +2,15 @@ import { FormControl, MenuItem, OutlinedInput, Select } from "@mui/material";
 import axios from "axios";
 import { useEffect } from "react";
 import CountryApiType from " ../../../type";
+import { useCountryStore } from "../../state/store";
 
 const SelectCountry = () => {
+  // setStates
+  const setContries = useCountryStore((store) => store.setContries);
+
+  // state
+  const contries = useCountryStore((Store) => Store.contries);
+
   useEffect(() => {
     const fetchCountires = async () => {
       try {
@@ -44,7 +51,7 @@ const SelectCountry = () => {
           };
         });
 
-        console.log(data);
+        setContries(data);
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
@@ -71,11 +78,12 @@ const SelectCountry = () => {
           <MenuItem disabled value="">
             <em>Countries</em>
           </MenuItem>
-          {/* {names.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
+          {/* maping contries names */}
+          {contries.map((contry) => (
+            <MenuItem key={contry.name.common} value={contry.name.common}>
+              {contry.name.common}
             </MenuItem>
-          ))} */}
+          ))}
         </Select>
       </FormControl>
     </div>
