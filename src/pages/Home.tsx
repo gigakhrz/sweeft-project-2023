@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import SelectCountry from "../components/Home/SelectCountry";
+import ContryDetail from "../components/Home/ContryDetail";
 
 const Home = () => {
   return (
     <HomeWrapper>
       <SelectCountry />
+      <ContryDetail />
     </HomeWrapper>
   );
 };

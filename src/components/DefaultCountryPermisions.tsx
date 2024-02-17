@@ -6,10 +6,21 @@ const DefaultCountryPermisions = () => {
   // states
   const country = useCountryStore((store) => store.country);
   const shortCountry = useCountryStore((store) => store.shortCountry);
+  const contries = useCountryStore((Store) => Store.contries);
+  const setContryInfo = useCountryStore((store) => store.setContryInfo);
 
   // setStates
   const setCountry = useCountryStore((store) => store.setCountry);
   const setShortCountry = useCountryStore((store) => store.setShortCountry);
+
+  // If the user agrees to share the address
+  const handleSetContryInfo = (selectedContry: string): void => {
+    const selected = contries.filter((contry) => {
+      contry.name.common === selectedContry;
+    });
+
+    setContryInfo(selected);
+  };
 
   //   fetch country function to fetch country if user will acces permision
   const fetchCountry = async (latitude: number, longtitude: number) => {
@@ -28,6 +39,7 @@ const DefaultCountryPermisions = () => {
         const countryName = countryResult.address_components[3];
         setCountry(countryName.long_name);
         setShortCountry(countryName.short_name);
+        handleSetContryInfo(countryName.long_name);
       }
     }
   };
