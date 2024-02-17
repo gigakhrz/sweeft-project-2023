@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useCountryStore } from "../state/store";
 
 export default function Header() {
+  const shortName = useCountryStore((store) => store.shortCountry);
+
   return (
     <HeaderWrapper>
-      <Link to="/Countries">
+      <Link to={`countries/${shortName}`}>
         <svg
           width="30px"
           height="30px"
@@ -21,7 +24,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="Countries/Exchange">
+      <Link to={`countries/${shortName}/Exchange`}>
         <svg
           width="30px"
           height="30px"
@@ -66,7 +69,7 @@ export default function Header() {
         </svg>
       </Link>
 
-      <Link to="Countries/Airports">
+      <Link to={`countries/${shortName}/Airports`}>
         <svg
           height="30px"
           width="30px"

@@ -118,13 +118,6 @@ const DefaultCountryPermisions = () => {
     getLocation();
   }, [contries]);
 
-  // this useEffect will navigate to the appropriate route when shortCountry changes
-  useEffect(() => {
-    if (shortName) {
-      navigate(`/Countries/${shortName}`); // Navigating to the new URL
-    }
-  }, [shortName, navigate]);
-
   return (
     <div>
       <h1>{country}</h1>
