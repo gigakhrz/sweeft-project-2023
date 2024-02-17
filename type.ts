@@ -23,7 +23,7 @@ interface CountryApiType {
     png: string;
     svg: string;
   };
-  altSpellings: string[];
+  altSpellings: string;
 }
 
 export default CountryApiType;

@@ -21,9 +21,15 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/Countries" replace />} />
-          <Route path="/Countries" element={<Home />} />
-          <Route path="/Countries/Exchange" element={<Exchange />} />
-          <Route path="/Countries/Airports" element={<Airpots />} />
+          <Route path="/Countries/:shortCountry" element={<Home />} />
+          <Route
+            path="/Countries/:shortCountry/Exchange"
+            element={<Exchange />}
+          />
+          <Route
+            path="/Countries/:shortCountry/Airports"
+            element={<Airpots />}
+          />
         </Routes>
       </AppWrapper>
     </Router>

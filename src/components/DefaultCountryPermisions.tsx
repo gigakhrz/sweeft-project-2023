@@ -2,12 +2,16 @@ import axios from "axios";
 import { useCountryStore } from "../state/store";
 import { useEffect } from "react";
 import CountryApiType from "../../type";
+import { useNavigate } from "react-router-dom";
 
 const DefaultCountryPermisions = () => {
+  const navigate = useNavigate();
+
   // states
   const country = useCountryStore((store) => store.country);
   const shortCountry = useCountryStore((store) => store.shortCountry);
   const contries = useCountryStore((Store) => Store.contries);
+  const shortName = useCountryStore((store) => store.shortCountry);
 
   // setStates
   const setCountry = useCountryStore((store) => store.setCountry);
@@ -81,9 +85,7 @@ const DefaultCountryPermisions = () => {
               png: country.flags?.png,
               svg: country.flags?.svg,
             },
-            altSpellings: {
-              shortName: country.altSpellings[0],
-            },
+            altSpellings: country.altSpellings[0],
           };
         });
 
@@ -115,6 +117,13 @@ const DefaultCountryPermisions = () => {
     };
     getLocation();
   }, [contries]);
+
+  // this useEffect will navigate to the appropriate route when shortCountry changes
+  useEffect(() => {
+    if (shortName) {
+      navigate(`/Countries/${shortName}`); // Navigating to the new URL
+    }
+  }, [shortName, navigate]);
 
   return (
     <div>
