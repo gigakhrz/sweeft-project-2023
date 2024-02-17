@@ -57,7 +57,6 @@ const SelectCountry = () => {
         });
 
         setContries(data);
-        console.log({ contries }) + "pirveli contry";
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
@@ -70,11 +69,10 @@ const SelectCountry = () => {
 
   const choosenContry = (e: SelectChangeEvent<string>): void => {
     const selected = contries.filter((contry) => {
-      contry.name.common === e.target.value;
+      return contry.name.common === e.target.value;
     });
 
     // check if selected is not undefined
-
     if (selected) {
       setContry(e.target.value);
       setContryInfo(selected);
