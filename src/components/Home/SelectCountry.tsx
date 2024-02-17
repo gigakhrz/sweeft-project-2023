@@ -2,11 +2,8 @@ import { FormControl, MenuItem, Select } from "@mui/material";
 import { useCountryStore } from "../../state/store";
 import { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
 import styled from "styled-components";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const SelectCountry = () => {
-  const navigate = useNavigate();
   // setStates
   const setContry = useCountryStore((store) => store.setCountry);
   const setContryInfo = useCountryStore((store) => store.setContryInfo);
@@ -15,7 +12,6 @@ const SelectCountry = () => {
   // state
   const contries = useCountryStore((Store) => Store.contries);
   const contry = useCountryStore((store) => store.country);
-  const shortName = useCountryStore((store) => store.shortCountry);
 
   // this function will catch selected country name
 
