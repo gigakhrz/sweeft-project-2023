@@ -57,6 +57,7 @@ const SelectCountry = () => {
         });
 
         setContries(data);
+        console.log({ contries }) + "pirveli contry";
       } catch (error) {
         console.error("Error fetching countries:", error);
       }
