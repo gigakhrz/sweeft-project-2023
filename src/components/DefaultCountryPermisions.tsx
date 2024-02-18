@@ -2,16 +2,12 @@ import axios from "axios";
 import { useCountryStore } from "../state/store";
 import { useEffect } from "react";
 import CountryApiType from "../../type";
-import { useNavigate } from "react-router-dom";
 
 const DefaultCountryPermisions = () => {
-  const navigate = useNavigate();
-
   // states
   const country = useCountryStore((store) => store.country);
   const shortCountry = useCountryStore((store) => store.shortCountry);
   const contries = useCountryStore((Store) => Store.contries);
-  const shortName = useCountryStore((store) => store.shortCountry);
 
   // setStates
   const setCountry = useCountryStore((store) => store.setCountry);
