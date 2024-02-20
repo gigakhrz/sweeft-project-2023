@@ -4,8 +4,6 @@ import { useCountryStore } from "../../state/store";
 const ContryDetail = () => {
   const contryInfo = useCountryStore((store) => store.contryInfo);
 
-  console.log(contryInfo);
-
   if (!contryInfo || contryInfo.length === 0) {
     return <div>Loading...</div>;
   }

@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useCountryStore } from "../state/store";
 
 export default function Header() {
   const shortName = useCountryStore((store) => store.shortCountry);
-
+  useNavigate();
   return (
     <HeaderWrapper>
       <Link to={`countries/${shortName}`}>

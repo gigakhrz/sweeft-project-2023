@@ -2,8 +2,10 @@ import axios from "axios";
 import { useCountryStore } from "../state/store";
 import { useEffect } from "react";
 import CountryApiType from "../../type";
+import { useNavigate } from "react-router-dom";
 
 const DefaultCountryPermisions = () => {
+  const navigate = useNavigate();
   // states
   const country = useCountryStore((store) => store.country);
   const shortCountry = useCountryStore((store) => store.shortCountry);
@@ -42,7 +44,7 @@ const DefaultCountryPermisions = () => {
         setCountry(countryName.long_name);
         setShortCountry(countryName.short_name);
         handleSetContryInfo(countryName.long_name);
-        console.log(countryName);
+        navigate(`Countries/${countryName.short_name}`);
       }
     }
   };
