@@ -24,7 +24,10 @@ function App() {
         <Header />
         <Routes>
           {shortName && (
-            <Route path="/" element={<Navigate to="/Countries" replace />} />
+            <Route
+              path="/"
+              element={<Navigate to={`/Countries/${shortName}`} replace />}
+            />
           )}
           <Route path="/Countries/:name" element={<Home />} />
           <Route path="/Countries/:name/Exchange" element={<Exchange />} />
