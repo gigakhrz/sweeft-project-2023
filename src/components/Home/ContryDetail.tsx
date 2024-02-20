@@ -6,8 +6,12 @@ const ContryDetail = () => {
 
   console.log(contryInfo);
 
-  if (!contryInfo) {
-    return <div>Loading...</div>; // Return a loading indicator or handle null case
+  if (!contryInfo || contryInfo.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  if (!contryInfo[0].currencies) {
+    return <div>Loading...</div>;
   }
   const currency = contryInfo[0].currencies;
 
@@ -24,7 +28,6 @@ const ContryDetail = () => {
       <li>
         <h2>Currency</h2>
         <h3>
-          {" "}
           {currency?.[0]?.name ? currency?.[0]?.name : "N/A"}{" "}
           {currency?.[0]?.symbol ? currency?.[0]?.symbol : "N/A"}
         </h3>

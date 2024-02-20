@@ -42,6 +42,7 @@ const DefaultCountryPermisions = () => {
         setCountry(countryName.long_name);
         setShortCountry(countryName.short_name);
         handleSetContryInfo(countryName.long_name);
+        console.log(countryName);
       }
     }
   };
