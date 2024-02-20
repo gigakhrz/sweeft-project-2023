@@ -11,8 +11,11 @@ import {
 import Home from "./pages/Home";
 import Exchange from "./pages/Exchange";
 import Airpots from "./pages/Airpots";
+import { useCountryStore } from "./state/store";
 
 function App() {
+  const shortName = useCountryStore((store) => store.shortCountry);
+
   return (
     <Router>
       <AppWrapper>
@@ -20,7 +23,9 @@ function App() {
         <DefaultCountryPermisions />
         <Header />
         <Routes>
-          <Route path="/" element={<Navigate to="/Countries" replace />} />
+          {shortName && (
+            <Route path="/" element={<Navigate to="/Countries" replace />} />
+          )}
           <Route path="/Countries/:name" element={<Home />} />
           <Route path="/Countries/:name/Exchange" element={<Exchange />} />
           <Route path="/Countries/:name/Airports" element={<Airpots />} />
