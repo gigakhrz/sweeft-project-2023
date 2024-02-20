@@ -41,10 +41,25 @@ const DefaultCountryPermisions = () => {
       );
       if (countryResult) {
         const countryName = countryResult.address_components[3];
-        setCountry(countryName.long_name);
-        setShortCountry(countryName.short_name);
-        handleSetContryInfo(countryName.long_name);
-        navigate(`Countries/${countryName.short_name}`);
+        console.log(countryName);
+        navigate(
+          `/Countries/${countryName.short_name ? "GE" : countryName.short_name}`
+        );
+        setCountry(
+          countryName.long_name === "Tbilisi"
+            ? "Georgia"
+            : countryName.long_name
+        );
+        setShortCountry(
+          countryName.short_name === "Tbilisi" || "Georgia"
+            ? "GE"
+            : countryName.short_name
+        );
+        handleSetContryInfo(
+          countryName.long_name === "Tbilisi"
+            ? "Georgia"
+            : countryName.long_name
+        );
       }
     }
   };
