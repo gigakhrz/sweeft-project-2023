@@ -69,7 +69,7 @@ const DefaultCountryPermisions = () => {
     const fetchCountires = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
+          "https://restcountries.com/v3.1/all?fields=name,cca2,cca3,shortName,capital,altSpellings,currencies,region,subregion,continents,population,borders,flags,"
         );
 
         const data = response.data.map((country: CountryApiType) => {
@@ -94,6 +94,8 @@ const DefaultCountryPermisions = () => {
             continents: country.continents?.[0],
             population: country.population,
             borders: country.borders ? country.borders.join(" ") : "",
+            cca2: country.cca2,
+            cca3: country.cca3,
             flags: {
               alt: country.flags?.alt,
               png: country.flags?.png,

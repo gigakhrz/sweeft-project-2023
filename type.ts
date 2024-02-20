@@ -4,6 +4,8 @@ interface CountryApiType {
     common: string;
     official: string;
   };
+  cca2: string;
+  cca3: string;
   flag?: string;
   shortName?: string;
   capital?: string;
@@ -27,3 +29,9 @@ interface CountryApiType {
 }
 
 export default CountryApiType;
+
+export interface AirportsType {
+  city: string;
+  iata: string;
+  name: string;
+}
