@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 const DefaultCountryPermisions = () => {
   const navigate = useNavigate();
   // states
-  const country = useCountryStore((store) => store.country);
-  const shortCountry = useCountryStore((store) => store.shortCountry);
   const contries = useCountryStore((Store) => Store.contries);
 
   // setStates
