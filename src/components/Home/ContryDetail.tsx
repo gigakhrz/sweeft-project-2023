@@ -53,6 +53,7 @@ const Info = styled.ul`
   flex-direction: column;
   gap: 10px;
   background-color: #add8e6;
+  border-radius: 7px;
 
   li {
     width: 250px;

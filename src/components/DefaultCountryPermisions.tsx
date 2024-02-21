@@ -134,13 +134,7 @@ const DefaultCountryPermisions = () => {
     getLocation();
   }, [contries]);
 
-  return (
-    <div>
-      <h1>{country}</h1>
-      <h2>{shortCountry}</h2>
-      <></>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default DefaultCountryPermisions;
