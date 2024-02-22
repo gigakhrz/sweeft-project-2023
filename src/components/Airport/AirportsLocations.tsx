@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { useCountryStore } from "../../state/store";
 import axios from "axios";
+import styled from "styled-components";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const AirportsLocations = () => {
@@ -35,7 +36,13 @@ const AirportsLocations = () => {
   }
 
   console.log(airports);
-  return <div>AirportsLocations</div>;
+  return <AirpotsInfoWrapper>AirportsLocations</AirpotsInfoWrapper>;
 };
 
 export default AirportsLocations;
+
+const AirpotsInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
