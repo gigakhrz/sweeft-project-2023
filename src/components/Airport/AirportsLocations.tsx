@@ -36,7 +36,12 @@ const AirportsLocations = () => {
   }
 
   console.log(airports);
-  return <AirpotsInfoWrapper>AirportsLocations</AirpotsInfoWrapper>;
+  return (
+    <AirpotsInfoWrapper>
+      <input type="text" />
+      AirportsLocations
+    </AirpotsInfoWrapper>
+  );
 };
 
 export default AirportsLocations;
