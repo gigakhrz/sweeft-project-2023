@@ -38,7 +38,7 @@ const AirportsLocations = () => {
   console.log(airports);
   return (
     <AirpotsInfoWrapper>
-      <input type="text" />
+      <input type="text" placeholder="search airpot" />
       AirportsLocations
     </AirpotsInfoWrapper>
   );
