@@ -19,4 +19,6 @@ const HomeWrapper = styled.div`
   align-items: center;
   width: 100%;
   gap: 15px;
+  background-color: red;
+  padding: 40px 0;
 `;
