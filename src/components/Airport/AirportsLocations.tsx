@@ -3,9 +3,14 @@ import { useCountryStore } from "../../state/store";
 import axios from "axios";
 import styled from "styled-components";
 import { TextField } from "@mui/material";
+import { useState } from "react";
+import { AirportsType } from "../../../type";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const AirportsLocations = () => {
+  const [searchedAirpot, setSearchedAirpot] = useState<string>("");
+
+  // zustand states
   const countryInfo = useCountryStore((store) => store.contryInfo);
 
   const airportsQueryKey = ["cachedAirport", countryInfo?.[0]?.cca2];
@@ -36,9 +41,12 @@ const AirportsLocations = () => {
     return <div>No airports data available</div>;
   }
 
-  // const filteredAirpots = airports && Array.isArray(airports) ?  airports.filter((airport: any) =>
-  // airport.name.toLowerCase().includes(countryName.toLowerCase())
-  // )
+  const filteredAirpots =
+    airports && Array.isArray(airports)
+      ? airports.filter((airport: any) =>
+          airport.name.toLowerCase().includes(searchedAirpot.toLowerCase())
+        )
+      : [];
 
   return (
     <AirpotsInfoWrapper>
@@ -47,6 +55,9 @@ const AirportsLocations = () => {
         id="outlined-basic"
         label="Airport"
         variant="outlined"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setSearchedAirpot(e.target.value)
+        }
         sx={{
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
@@ -55,6 +66,16 @@ const AirportsLocations = () => {
           },
         }}
       />
+
+      <ul>
+        {filteredAirpots.map((airport: AirportsType, index) => {
+          return (
+            <li key={index}>
+              {airport.name} - {airport.city} {airport.iata}
+            </li>
+          );
+        })}
+      </ul>
     </AirpotsInfoWrapper>
   );
 };
