@@ -25,7 +25,9 @@ const AirportsLocations = () => {
           }
         );
 
-        return response.data;
+        return response.data.filter((airport: AirportsType) => {
+          return airport.iata !== "";
+        });
       } catch (error) {
         console.error("Error fetching airports:", error);
         throw error; // Rethrow the error to be handled by the caller
@@ -91,6 +93,12 @@ const AirpotsInfoWrapper = styled.div`
   background-color: #add8e6;
   border-radius: 5px;
   width: 350px;
-  padding-top: 30px;
+  padding: 40px 0;
   gap: 15px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 `;
