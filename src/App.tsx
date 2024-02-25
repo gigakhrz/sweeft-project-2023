@@ -51,4 +51,5 @@ const AppWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   gap: 25px;
+  padding: 0 15px;
 `;
