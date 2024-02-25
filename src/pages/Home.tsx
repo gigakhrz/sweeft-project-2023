@@ -25,4 +25,9 @@ const HomeWrapper = styled.div`
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.2) 0px 2px 1px -1px;
   border-radius: 10px;
   padding: 30px 20px;
+  @media screen and (min-width: 768px) {
+    max-width: 850px;
+    gap: 40px;
+    padding: 60px 0;
+  }
 `;
