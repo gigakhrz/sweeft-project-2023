@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { useCountryStore } from "../../state/store";
 import axios from "axios";
 import styled from "styled-components";
+import { TextField } from "@mui/material";
 const airportsApiKey = import.meta.env.VITE_REACT_APP_AIRPORTS_API_KEY;
 
 const AirportsLocations = () => {
@@ -35,11 +36,14 @@ const AirportsLocations = () => {
     return <div>No airports data available</div>;
   }
 
-  console.log(airports);
+  // const filteredAirpots = airports && Array.isArray(airports) ?  airports.filter((airport: any) =>
+  // airport.name.toLowerCase().includes(countryName.toLowerCase())
+  // )
+
   return (
     <AirpotsInfoWrapper>
-      <input type="text" placeholder="search airpot" />
-      AirportsLocations
+      <h1>Airports</h1>
+      <TextField id="standard-basic" label="Standard" variant="standard" />
     </AirpotsInfoWrapper>
   );
 };
@@ -49,5 +53,11 @@ export default AirportsLocations;
 const AirpotsInfoWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 100%;
+  background-color: #add8e6;
+  border-radius: 5px;
+  width: 350px;
+  padding-top: 30px;
 `;
