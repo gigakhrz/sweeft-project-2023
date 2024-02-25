@@ -65,4 +65,7 @@ export default SelectCountry;
 
 const MainInput = styled.div`
   width: 250px;
+  @media screen and (min-width: 768px) {
+    width: 500px;
+  }
 `;

@@ -57,9 +57,10 @@ const Info = styled.ul`
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.2) 0px 2px 1px -1px;
   padding: 15px;
+  width: 100%;
 
   li {
-    width: 250px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,6 +71,9 @@ const Info = styled.ul`
       font-size: 16px;
       line-height: 20px;
       color: #5c5e60;
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+      }
     }
 
     & > h3 {
@@ -77,6 +81,9 @@ const Info = styled.ul`
       font-size: 16px;
       line-height: 20px;
       color: #5c5e60;
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+      }
     }
   }
 `;
