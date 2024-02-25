@@ -43,7 +43,18 @@ const AirportsLocations = () => {
   return (
     <AirpotsInfoWrapper>
       <h1>Airports</h1>
-      <TextField id="standard-basic" label="Standard" variant="standard" />
+      <TextField
+        id="outlined-basic"
+        label="Airport"
+        variant="outlined"
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "black", // Replace with your color
+            },
+          },
+        }}
+      />
     </AirpotsInfoWrapper>
   );
 };
@@ -60,4 +71,5 @@ const AirpotsInfoWrapper = styled.div`
   border-radius: 5px;
   width: 350px;
   padding-top: 30px;
+  gap: 15px;
 `;
