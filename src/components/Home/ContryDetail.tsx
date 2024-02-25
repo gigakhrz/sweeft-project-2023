@@ -16,6 +16,14 @@ const ContryDetail = () => {
   return (
     <Info>
       <li>
+        <h1>{contryInfo !== null ? contryInfo[0].name.common : "N/A"}</h1>
+        <img
+          src={contryInfo[0]?.flags?.png}
+          className="countryMap"
+          alt={`${contryInfo[0].name.common} flag`}
+        />
+      </li>
+      <li>
         <h2>Capital</h2>
         <h3>{contryInfo !== null ? contryInfo[0].capital : "N/A"}</h3>
       </li>
@@ -68,6 +76,17 @@ const Info = styled.ul`
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
+    img {
+      width: 40px;
+      height: 30px;
+    }
+
+    h1 {
+      font-size: 18px;
+      @media screen and (min-width: 768px) {
+        font-size: 20px;
+      }
+    }
 
     & > h2 {
       font-weight: 700;

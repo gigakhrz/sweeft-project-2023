@@ -28,6 +28,6 @@ const HomeWrapper = styled.div`
   @media screen and (min-width: 768px) {
     max-width: 850px;
     gap: 40px;
-    padding: 60px 0;
+    padding: 60px 20px;
   }
 `;
