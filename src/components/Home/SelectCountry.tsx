@@ -1,6 +1,6 @@
 import { FormControl, MenuItem, Select } from "@mui/material";
 import { useCountryStore } from "../../state/store";
-import { SelectChangeEvent } from "@mui/material/Select"; // Import SelectChangeEvent
+import { SelectChangeEvent } from "@mui/material/Select";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
