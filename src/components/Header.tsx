@@ -112,4 +112,10 @@ const HeaderWrapper = styled.div`
   border-radius: 10px;
   justify-content: center;
   gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 400px;
+    height: 60px;
+    gap: 35px;
+  }
 `;
