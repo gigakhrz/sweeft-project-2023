@@ -92,13 +92,20 @@ const AirpotsInfoWrapper = styled.div`
   width: 100%;
   background-color: #add8e6;
   border-radius: 5px;
-  width: 350px;
   padding: 40px 0;
   gap: 15px;
+  @media screen and (min-width: 768px) {
+    gap: 25px;
+    max-width: 850px;
+  }
 
   ul {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media screen and (min-width: 768px) {
+      gap: 15px;
+    }
   }
 `;
