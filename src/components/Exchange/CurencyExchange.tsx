@@ -1,5 +1,9 @@
+import styled from "styled-components";
+
 const CurencyExchange = () => {
-  return <div>CurencyExchange</div>;
+  return <CurencyExchangeWrapper>CurencyExchange</CurencyExchangeWrapper>;
 };
 
 export default CurencyExchange;
+
+const CurencyExchangeWrapper = styled.div``;
