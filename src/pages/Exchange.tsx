@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import CurencyExchange from "../components/Exchange/CurencyExchange";
 
 const Exchange = () => {
   return (
     <CurrencyWrapper>
-      <h1>Currency Exchange</h1>
+      <CurencyExchange />
     </CurrencyWrapper>
   );
 };
