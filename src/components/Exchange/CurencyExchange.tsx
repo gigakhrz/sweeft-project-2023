@@ -13,15 +13,20 @@ const CurencyExchange = () => {
       <div className="inputsWrapper">
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="from-currency-label">From</InputLabel>
-          <Select labelId="from-currency-label" id="from-currency" label="From">
+          <Select
+            labelId="from-currency-label"
+            id="from-currency"
+            label="From"
+            value={currencyFrom}
+          >
             <MenuItem value="₾" disabled={currencyTo === "₾"}>
               ₾
             </MenuItem>
             <MenuItem value="£" disabled={currencyTo === "£"}>
-              $
+              £{" "}
             </MenuItem>
             <MenuItem value="$" disabled={currencyTo === "$"}>
-              £
+              $
             </MenuItem>
             <MenuItem value="€" disabled={currencyTo === "€"}>
               €
@@ -31,15 +36,20 @@ const CurencyExchange = () => {
 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="from-currency-label">From</InputLabel>
-          <Select labelId="from-currency-label" id="from-currency" label="From">
+          <Select
+            labelId="from-currency-label"
+            id="from-currency"
+            label="From"
+            value={currencyTo}
+          >
             <MenuItem value="₾" disabled={currencyFrom === "₾"}>
               ₾
             </MenuItem>
             <MenuItem value="£" disabled={currencyFrom === "£"}>
-              $
+              £
             </MenuItem>
             <MenuItem value="$" disabled={currencyFrom === "$"}>
-              £
+              $
             </MenuItem>
             <MenuItem value="€" disabled={currencyFrom === "€"}>
               €
