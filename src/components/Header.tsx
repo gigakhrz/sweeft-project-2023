@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useCountryStore } from "../state/store";
 
 export default function Header() {
+  // the shortname state
+  //
   const shortName = useCountryStore((store) => store.shortCountry);
   useNavigate();
   return (
