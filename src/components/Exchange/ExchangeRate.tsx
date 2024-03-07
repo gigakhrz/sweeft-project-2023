@@ -2,12 +2,26 @@ import { TextField } from "@mui/material";
 import styled from "styled-components";
 import { useCountryStore } from "../../state/store";
 import { useState } from "react";
+import data from "../../../data.json";
 
 const ExchangeRate = () => {
   // curency from and to states
   const currencyFrom = useCountryStore((store) => store.currencyFrom);
   const currencyTo = useCountryStore((store) => store.currencyTo);
   const [summary, setSummary] = useState<number>(0);
+
+  const exchangeRates: {
+    [key: string]: {
+      [key: string]: number;
+    };
+  } = data.exchangeRates;
+
+  const exchangeRate = exchangeRates[currencyFrom][currencyTo];
+
+  const calculateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const secondInputValue = parseFloat(e.target.value) * exchangeRate;
+    setSummary(secondInputValue);
+  };
 
   return (
     <Wrapper>
@@ -16,6 +30,7 @@ const ExchangeRate = () => {
         label={`Exchange ${currencyFrom} to ${currencyTo}`}
         type="number"
         variant="standard"
+        onChange={calculateValue}
       />
 
       <svg
