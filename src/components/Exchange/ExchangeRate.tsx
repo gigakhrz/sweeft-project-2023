@@ -10,6 +10,7 @@ const ExchangeRate = () => {
   const currencyTo = useCountryStore((store) => store.currencyTo);
   const [summary, setSummary] = useState<number>(0);
 
+  // data json types
   const exchangeRates: {
     [key: string]: {
       [key: string]: number;
